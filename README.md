@@ -7,6 +7,16 @@
 - **标准完整链路**：`PM -> Insight -> Strategy -> Reviewer -> Creative -> Media`
 - **单一能力链路**：`PM -> 单个 Specialist（Insight / Strategy / Creative / Media）`
 
+## 这个项目的亮点
+
+- **不是单点 Agent Demo，而是完整工作流**：把广告需求真正拆成 `研究 -> 策略 -> 审核 -> 创意 -> 媒介 -> 交付`
+- **支持多轮反馈**：每个关键节点都可以继续、修改、补充信息或终止，而不是一次性黑盒输出
+- **有 Reviewer 质量门**：Strategy 不直接放行到下游，而是先经过 Reviewer 做质量 Gate
+- **支持机器 Review + 人工复核**：不仅能自动审 Strategy，还能记录人工评分，做后续校准和迭代
+- **项目级文件管理**：每个项目都有独立目录、状态文件和节点产物，便于追踪、复盘和版本迭代
+- **双入口展示**：同一条链路既能在 OpenClaw Dashboard 跑，也能在企业微信里以摘要 + 文档链接形式交付
+- **可继续往下游生产**：Creative 文档可以直接作为后续视觉物料和广告视频生成的输入
+
 ```mermaid
 flowchart LR
     A["Brief"] --> B["PM Agent"]
@@ -30,6 +40,15 @@ flowchart LR
 | Reviewer | 在下游前做策略质量 Gate |
 | Creative | 输出 slogan / 文案 / 脚本 / 创意表达 |
 | Media | 输出内容种草、平台打法、达人与投放建议 |
+
+## 产品化设计
+
+- **标准工作流**：用于完整广告项目，从 Brief 一路走到最终交付
+- **单节点工作流**：用于只调某一个 Specialist 的场景，例如 `strategy-only` 或 `media-only`
+- **Gate 机制**：用户可以在关键节点决定继续、修改、补充信息或终止
+- **Reviewer 机制**：Strategy 先经过质量审核，再进入 Creative / Media
+- **人机协同评估**：机器先审、人工再审，后续可用来做 reviewer calibration
+- **多入口接入**：支持 Dashboard 和企业微信两种使用方式
 
 ---
 
@@ -131,4 +150,3 @@ Creative 文档 -> 广告 KV -> 最终视频，这一步也已经跑通。
 - `media-only`
 
 这一部分的截图我后续再补到仓库里。
-
