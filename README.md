@@ -2,6 +2,10 @@
 
 一个基于 OpenClaw 搭建的广告 Agent Team Demo，用来把一份 marketing brief 走成可交付的传播方案。
 
+## 项目文档
+
+- [广告 Agent Team PRD](广告AgentTeam_PRD.pdf)
+
 ## 两条链路
 
 - **标准完整链路**：`PM -> Insight -> Strategy -> Reviewer -> Creative -> Media`
