@@ -1,98 +1,134 @@
-# 180agent_team
+# 180 Agent Team
 
-Portfolio-style project showcase for interview conversations.
+一个基于 OpenClaw 搭建的广告 Agent Team Demo，用来把一份 marketing brief 走成可交付的传播方案。
 
-> This repository is a sanitized demo summary based on work completed in a company environment. It does not include proprietary source code, credentials, customer data, or internal documentation.
+## 两条链路
 
-## Project Snapshot
+- **标准完整链路**：`PM -> Insight -> Strategy -> Reviewer -> Creative -> Media`
+- **单一能力链路**：`PM -> 单个 Specialist（Insight / Strategy / Creative / Media）`
 
-`180agent_team` is a team-oriented agent workflow project focused on improving operational efficiency, task coordination, and execution visibility.
+```mermaid
+flowchart LR
+    A["Brief"] --> B["PM Agent"]
+    B --> C["Insight"]
+    C --> D["Strategy"]
+    D --> E["Reviewer"]
+    E --> F["Creative"]
+    F --> G["Media"]
+    G --> H["Delivery"]
 
-### My Role
+    B -. single specialist workflow .-> I["One Specialist Only"]
+```
 
-- Product-minded engineer responsible for core feature delivery
-- Worked across implementation, workflow refinement, and demo validation
-- Partnered with teammates to improve reliability and usability
+## 每个步骤在做什么
 
-### What I Can Share
+| 节点 | 作用 |
+| --- | --- |
+| PM | 路由、状态控制、Gate、汇总交付 |
+| Insight | 补行业、竞品、趋势与公开研究信息 |
+| Strategy | 收敛 brief 挑战，形成传播命题与策略骨架 |
+| Reviewer | 在下游前做策略质量 Gate |
+| Creative | 输出 slogan / 文案 / 脚本 / 创意表达 |
+| Media | 输出内容种草、平台打法、达人与投放建议 |
 
-- Product goals and usage flow
-- Interface walkthroughs
-- Feature ownership and engineering decisions
-- Outcome highlights and lessons learned
+---
 
-## Core Workflows
+## 1. OpenClaw 完整链路展示
 
-### 1. Task Intake
+下面这组图展示的是在 OpenClaw Dashboard 中跑完整标准链路的过程。
 
-Describe how requests enter the system, how they are categorized, and how work is assigned.
+### 1.1 Brief 进入 PM，自动起完整链路
 
-### 2. Agent Collaboration
+<img src="assets/readme/openclaw/download-0.png" width="900" alt="OpenClaw brief input" />
 
-Explain how team members or agents coordinate, hand off work, and track progress.
+### 1.2 Insight 先补研究，再进入确认口
 
-### 3. Review and Delivery
+<img src="assets/readme/openclaw/download-3.png" width="900" alt="OpenClaw insight gate" />
 
-Summarize how outputs are checked, approved, and delivered to users or stakeholders.
+### 1.3 Strategy 经 Reviewer 质检后停在确认口
 
-## Demo Screenshots
+<img src="assets/readme/openclaw/download-5.png" width="900" alt="OpenClaw strategy reviewer gate" />
 
-Replace the placeholder images below with your real demo screenshots tomorrow.
+### 1.4 Creative / Media 继续向下游交付
 
-### Dashboard Overview
+<img src="assets/readme/openclaw/download-8.png" width="900" alt="OpenClaw creative and media gate" />
 
-![Dashboard Overview](./assets/screenshots/dashboard-overview.png)
+### 1.5 最终汇总交付
 
-Briefly explain what the dashboard shows and why it matters.
+<img src="assets/readme/openclaw/download-9.png" width="900" alt="OpenClaw final delivery" />
 
-### Workflow Detail
+<details>
+<summary>查看更多 OpenClaw 测试截图（download-0 ~ download-9）</summary>
 
-![Workflow Detail](./assets/screenshots/workflow-detail.png)
+<p>
+  <img src="assets/readme/openclaw/download-1.png" width="47%" alt="OpenClaw screenshot 1" />
+  <img src="assets/readme/openclaw/download-2.png" width="47%" alt="OpenClaw screenshot 2" />
+</p>
+<p>
+  <img src="assets/readme/openclaw/download-4.png" width="47%" alt="OpenClaw screenshot 4" />
+  <img src="assets/readme/openclaw/download-6.png" width="47%" alt="OpenClaw screenshot 6" />
+</p>
+<p>
+  <img src="assets/readme/openclaw/download-7.png" width="47%" alt="OpenClaw screenshot 7" />
+</p>
 
-Call out the most important interaction or status signal in this view.
+</details>
 
-### Execution Result
+---
 
-![Execution Result](./assets/screenshots/execution-result.png)
+## 2. 企业微信完整链路展示
 
-Describe the outcome, report, or final state shown here.
+同一条标准链路也可以直接跑在企业微信里，对外输出会收成“摘要 + 文档链接”的形式。
 
-## Engineering Notes
+### 2.1 企业微信里输入 Brief
 
-### Stack
+<img src="assets/readme/wecom/download-10.png" width="900" alt="WeCom brief input" />
 
-- Frontend: replace with actual stack
-- Backend: replace with actual stack
-- Data / Infra: replace with actual stack
-- Tooling: replace with actual stack
+### 2.2 Insight 返回摘要和文档链接
 
-### My Contributions
+<img src="assets/readme/wecom/download-11.png" width="900" alt="WeCom insight summary" />
 
-- Built:
-- Improved:
-- Debugged:
-- Shipped:
+### 2.3 Strategy 返回摘要，并附上 Strategy / Reviewer 文档
 
-### Challenges
+<img src="assets/readme/wecom/download-12.png" width="900" alt="WeCom strategy summary" />
 
-- Constraint 1:
-- Constraint 2:
-- Constraint 3:
+### 2.4 Creative 返回摘要和文档链接
 
-### What I Would Improve Next
+<img src="assets/readme/wecom/download-13.png" width="900" alt="WeCom creative summary" />
 
-- Improvement 1
-- Improvement 2
-- Improvement 3
+### 2.5 最终 Creative 文档
 
-## Interview Talking Points
+<img src="assets/readme/wecom/download-14.png" width="900" alt="Creative document output" />
 
-- What problem this project solved
-- Why the workflow mattered to the business
-- What part I owned directly
-- The hardest technical tradeoff
-- How we validated the result
+### 2.6 基于 Creative 文档生成广告 KV
 
-## Notes
+这一步不是再写策略，而是把企业微信链路里产出的 Creative 文档，直接交给 Claude Code / Opus 继续生成视觉物料。
 
-If needed for interviews, I can discuss architecture, implementation tradeoffs, and delivery impact at a high level without exposing confidential material.
+<p>
+  <img src="assets/readme/output/ad-1.jpg" width="31%" alt="Generated ad visual 1" />
+  <img src="assets/readme/output/ad-2.jpg" width="31%" alt="Generated ad visual 2" />
+  <img src="assets/readme/output/ad-3.jpg" width="31%" alt="Generated ad visual 3" />
+</p>
+
+### 2.7 最终广告视频
+
+Creative 文档 -> 广告 KV -> 最终视频，这一步也已经跑通。  
+点击下面的封面图可以直接查看仓库里的视频文件：
+
+[![广告视频预览](assets/readme/output/ad-3.jpg)](assets/readme/output/ad-video.mp4)
+
+直接链接：[`ad-video.mp4`](assets/readme/output/ad-video.mp4)
+
+---
+
+## 3. 单一链路展示
+
+这条链路已经支持：
+
+- `insight-only`
+- `strategy-only`
+- `creative-only`
+- `media-only`
+
+这一部分的截图我后续再补到仓库里。
+
